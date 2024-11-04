@@ -1,6 +1,23 @@
 const express = require("express");
 const connection = require("./db");
 const app = express();
+const path = require('path');
+
+
+
+const app = express();
+
+// Encargado de parsear a los json
+app.use(express.json());
+
+app.use(express.urlencoded({extended:true}));
+
+// Archivos html
+app.use(express.static(path.join(__dirname, 'templates')));
+
+
+
+
 
 //encargado de parsear a los json
 app.use(express.json());
